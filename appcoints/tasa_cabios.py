@@ -1,7 +1,7 @@
 import requests
+from config import apikey
 
 moneda_cripto = input("Ingrese una criptomoneda conocida ").upper()
-apikey= "68406179-6C37-44CD-B433-7E891D8C2722"
 
 
 while moneda_cripto != "" and moneda_cripto.isalpha():
@@ -14,10 +14,12 @@ while moneda_cripto != "" and moneda_cripto.isalpha():
 
     #ejercicio 2 capturar errores de peticion http
     if r.status_code == 200:
-        print("rate: ",respuesta['rate'])
+        #print("rate: ",respuesta['rate'])
+        print( "{:.2f}€".format( respuesta ['rate'] ) )
+        break
 
     else:
         print("error:",respuesta['error'])
 
 
-    moneda_cripto = input("Ingrese una criptomoneda conocida").upper()
+    moneda_cripto = input("Ingrese una criptomoneda conocida: ").upper()
