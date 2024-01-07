@@ -5,6 +5,8 @@ from config import apikey
 #consulta de todas las monedas
 url=f"https://rest.coinapi.io/v1/assets/?apikey={apikey}"
 r = requests.get(url)
+if r.status_code != 200:
+    raise Exception("Error en consulta condigo: {}".format(r.status_code))
 
 lista_general= r.json()
 lista_criptos=[]
@@ -34,3 +36,4 @@ while moneda_cripto != "" and moneda_cripto.isalpha():
         else:
             print("error:",respuesta['error'])
 
+    moneda_cripto = input("Ingrese una criptomoneda conocida ").upper()
