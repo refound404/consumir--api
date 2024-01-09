@@ -1,15 +1,16 @@
 class Views:
     def insterCoin(self):
-        moneda_cripto = input("Ingrese una criptomoneda conocida ").upper()
+        moneda_cripto = input("Ingrese una moneda conocida ").upper()
         return moneda_cripto
     
     def viewListCoins(self,allcoint):
-        print("Total: ",len(allcoint.lista_general))
-        print("Criptos: ",len(allcoint.lista_criptos))
-        print("No criptos: ",len(allcoint.lista_no_criptos))
+        print(f"Total: ,{len(allcoint.lista_general)}\nCriptos: {len(allcoint.lista_criptos)}\nNo criptos: {len(allcoint.lista_no_criptos)}")
 
-    def viewRateExchange(sel,change ):
-         print( "{:.2f}€".format( change.rate))
+    def viewRateExchange(self,change ):
+         print(f"fecha de consulta: {change.time}" + "\n{:.2f}€".format( change.rate))
+
+    def viewRateExchange(self,change ):
+        print(f"fecha de consulta: {change.time}\n{change.rate}")
 
     def getError(self,er):
         print(er)

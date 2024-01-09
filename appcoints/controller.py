@@ -2,7 +2,6 @@ from appcoints.config import apikey
 from appcoints.model import *
 from appcoints.view import *
 
-
 class AppCoinsController:
 
     def executeProgram(self):
@@ -16,11 +15,11 @@ class AppCoinsController:
         moneda_cripto = viewTools.insterCoin()
 
         while moneda_cripto != "" and moneda_cripto.isalpha():
-            if moneda_cripto in allcoint.lista_criptos:
+            if moneda_cripto in allcoint.lista_no_criptos:
                 exchange = Exchange(moneda_cripto)
                 try:  
-                    exchange.updateExchange(apikey)
-                    viewTools.viewRateExchange(exchange)
+                    exchange.updateExchange2(apikey)
+                    viewTools.viewRateExchange2(exchange)
                 except ModelError as error:
                     viewTools.getError(error)
                 
